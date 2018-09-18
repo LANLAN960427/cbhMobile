@@ -1,5 +1,73 @@
 <template>
   <div class="task">
+    <div class="task-info">
+      <div class="info-data">
+        <div class="info-card">
+          <div class="info-item">
+            <div class="item-content">
+              <div class="content-row">
+                <span class="row">
+                  <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                    <div class="item-icon bg-green">
+                      <i class="iconfont icon-icon-price" />
+                    </div>
+                    <div class="apply-text">价格确认</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-red">
+                      <i class="iconfont icon-daohuofangshi" />
+                    </div>
+                    <div class="apply-text">收货</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-orange">
+                      <i class="iconfont icon-fukuan" />
+                    </div>
+                    <div class="apply-text">付款</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-red">
+                      <i class="iconfont icon-daiban" />
+                    </div>
+                    <div class="apply-text">结算</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-red">
+                      <i class="iconfont icon-daiban" />
+                    </div>
+                    <div class="apply-text">盖章</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-red">
+                      <i class="iconfont icon-daiban" />
+                    </div>
+                    <div class="apply-text">扣款</div>
+                  </div>
+                </span>
+                <span class="row">
+                  <div class="apply-item">
+                    <div class="item-icon bg-red">
+                      <i class="iconfont icon-daiban" />
+                    </div>
+                    <div class="apply-text">资金冻结</div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="task-data">
       <!-- <div class="task-button">
         <van-button type="default" class="button" @click="exeTask">{{taskModel === '我的已办' ? '查看详情' : '执行任务'}}</van-button>
@@ -18,10 +86,10 @@
               <span class="row-left">任务名称：{{taskModel === '我的已办' ? item[2] : item[2]}}</span>
               <span class="row-right">执行人：{{taskModel === '我的已办' ? item[9] : item[13]}}</span>
             </div>
-            <div class="content-row">
+            <!-- <div class="content-row">
               <span class="row-left">创建日期：{{taskModel === '我的已办' ? item[7] : item[8] | formatDate}}</span>
               <span class="row-right" v-if="taskModel === '我的已办'">完成日期：{{item[15] !=="1900-01-01 00:00:00" ? item[15] : '' | formatDate}}</span>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -170,6 +238,55 @@ export default {
 .task {
   width: 100%;
   padding: 10px;
+  .task-info {
+    background-color: #fff;
+    margin-bottom: 10px;
+    .info-data {
+      // margin-bottom: 10px;
+      .info-card {
+        width: 100%;
+        .info-item {
+          background-color: #fff;
+          // padding: 10px 15px;
+          border-radius: 5px;
+          .item-content {
+            padding: 5px 0;
+            font-size: 13px;
+            color: #666;
+            .content-row {
+              .row {
+                padding: 0px 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .apply-item {
+      height: 100px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .item-icon {
+        width: 47px;
+        height: 47px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .iconfont {
+          color: #fff;
+          font-size: 25px;
+        }
+      }
+    }
+    .apply-text {
+      font-size: 13px;
+      padding-top: 10px;
+    }
+  }
   .task-data {
     margin-bottom: 40px;
     .task-button {

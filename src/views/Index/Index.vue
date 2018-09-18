@@ -10,14 +10,99 @@
     </div>
     <!--应用-->
     <div class="index-apply">
-      <div class="apply">
-        <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
-          <div class="item-icon bg-red">
-            <i class="iconfont icon-daiban" />
+      <div class="apply" v-if="userType === 1">
+        <div class="info-data">
+          <div class="info-card">
+            <div class="info-item">
+              <div class="item-title">
+                <span class="title">我的待办</span>
+              </div>
+              <div class="item-content">
+                <div class="content-row">
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span class="info">{{item.info}}</span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span></span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span></span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span></span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span></span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon">
+                        <img v-lazy="item.icon" width="100%" class="iconfont" />
+                        <span></span>
+                      </div>
+                      <div class="apply-text">{{item.text}}</div>
+                    </div>
+                  </span>
+                  <!-- <span class="row">
+                    <div class="apply-item">
+                      <div class="item-icon bg-red">
+                        <i class="iconfont icon-daiban" />
+                      </div>
+                      <div class="apply-text">盖章</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item">
+                      <div class="item-icon bg-red">
+                        <i class="iconfont icon-daiban" />
+                      </div>
+                      <div class="apply-text">扣款</div>
+                    </div>
+                  </span>
+                  <span class="row">
+                    <div class="apply-item">
+                      <div class="item-icon bg-red">
+                        <i class="iconfont icon-daiban" />
+                      </div>
+                      <div class="apply-text">资金冻结</div>
+                    </div>
+                  </span> -->
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="apply-text">我的待办</div>
         </div>
-        <div class="apply-item" @click="jumpPage('taskWait','我的已办')">
+        <!-- <div class="apply-item" @click="jumpPage('taskWait','我的已办')">
           <div class="item-icon bg-green">
             <i class="iconfont icon-yiban" />
           </div>
@@ -34,7 +119,7 @@
             <i class="iconfont icon-chaxun" />
           </div>
           <div class="apply-text">物资查询</div>
-        </div>
+        </div> -->
         <!-- <div class="apply-item" @click="jumpPage('project', '自营项目')">
           <div class="item-icon bg-orange">
             <i class="iconfont icon-ziying" />
@@ -47,6 +132,35 @@
           </div>
           <div class="apply-text">合作项目</div>
         </div> -->
+      </div>
+      <div class="apply" v-else>
+        <!-- <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+          <div class="item-icon bg-red">
+            <i class="iconfont icon-daiban" />
+          </div>
+          <div class="apply-text">我的待办</div>
+        </div> -->
+        <div class="info-data">
+          <div class="info-card">
+            <div class="info-item">
+              <div class="item-title">
+                <span class="title">我的待办</span>
+              </div>
+              <div class="item-content">
+                <div class="content-row">
+                  <span class="row">
+                    <div class="apply-item" @click="jumpPage('taskWait','我的待办')">
+                      <div class="item-icon bg-green">
+                        <i class="iconfont icon-icon-price" />
+                      </div>
+                      <div class="apply-text">材料报价</div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <van-swipe class="apply-project" v-if="userType === 1">
         <van-swipe-item>
@@ -146,6 +260,11 @@ import count from "./../Count/Count";
 export default {
   data() {
     return {
+      item: {
+        text: "价格确认",
+        icon: "img/ms_ico1.png",
+        info: "1"
+      },
       images: [
         "banner/baaner1.png",
         "banner/baaner2.png",
@@ -190,6 +309,43 @@ export default {
     .apply {
       display: flex;
       align-items: center;
+      .info-data {
+        // margin-bottom: 10px;
+        .info-card {
+          width: 100%;
+          .info-item {
+            padding: 10px 15px;
+            // border-bottom: 1px solid #eee;
+            border-radius: 5px;
+            // margin-bottom: 10px;
+            .item-title {
+              padding: 10px 0;
+              border-bottom: 1px solid #f6f6f6;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .title {
+                font-weight: 600;
+                font-size: 16px;
+              }
+              .icon {
+                font-size: 14px;
+              }
+            }
+            .item-content {
+              padding: 5px 0;
+              font-size: 13px;
+              color: #666;
+              .content-row {
+                float: left;
+                .row {
+                  padding: 0px 17px;
+                }
+              }
+            }
+          }
+        }
+      }
       .apply-item {
         height: 100px;
         flex: 1;
@@ -198,20 +354,20 @@ export default {
         align-items: center;
         justify-content: center;
         .item-icon {
-          width: 50px;
-          height: 50px;
+          width: 47px;
+          height: 47px;
           border-radius: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           .iconfont {
             color: #fff;
-            font-size: 30px;
+            font-size: 25px;
           }
         }
       }
       .apply-text {
-        font-size: 14px;
+        font-size: 13px;
         padding-top: 10px;
       }
     }
