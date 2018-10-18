@@ -6,11 +6,11 @@
 
     <keep-alive>
       <transition :name="transitionName">
-        <router-view class="content" v-if="$route.meta.keepAlive"></router-view>
+        <router-view class="content" v-if="$route.meta.keepAlive" v-input></router-view>
       </transition>
     </keep-alive>
     <transition :name="transitionName">
-      <router-view class="content" v-if="!$route.meta.keepAlive"></router-view>
+      <router-view class="content" v-if="!$route.meta.keepAlive" v-input></router-view>
     </transition>
 
     <van-tabbar v-model="active" v-show="isTabbar" v-if="userType <= 2">

@@ -75,10 +75,10 @@ export default {
     },
     getView(index) {
       if (index === 0) {
-        setTimeout(() => {
-          const obj = document.getElementById("viewText");
-          if (obj) obj.focus();
-        }, 10);
+        // setTimeout(() => {
+        //   const obj = document.getElementById("viewText");
+        //   if (obj) obj.focus();
+        // }, 10);
       } else if (index === 1) {
         task.getViewList(this.data.InstanceID).then(res => {
           if (res && res.status === 1) {
@@ -90,12 +90,12 @@ export default {
     },
     showTabs() {
       this.$store.commit("tabsShow", !this.tabsShow);
-      if (this.tabsShow) {
-        this.$nextTick(() => {
-          const obj = document.getElementById("viewText");
-          if (obj) obj.focus();
-        });
-      }
+      // if (this.tabsShow) {
+      //   this.$nextTick(() => {
+      //     const obj = document.getElementById("viewText");
+      //     if (obj) obj.focus();
+      //   });
+      // }
     },
     // 重新发起
     onReset() {
@@ -318,8 +318,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       if (this.taskModel !== "我的待办") this.$store.commit("tabsShow", false);
-      const obj = document.getElementById("viewText");
-      if (obj) obj.focus();
+      // const obj = document.getElementById("viewText");
+      // if (obj) obj.focus();
     });
   }
 };

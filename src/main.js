@@ -17,11 +17,13 @@ import cbhSelect from "./components/Select/Select";
 import axios from './assets/js/request';
 import echarts from 'echarts'
 import * as custom from './assets/js/filters'
+import VueInput from 'vue-input';
 
 Vue.use(Vant);
 Vue.use(Lazyload);
 Vue.use(cbhRegion);
 Vue.use(cbhSelect);
+Vue.use(VueInput);
 Vue.component('cbh-region', cbhRegion)
 Vue.component('cbh-select', cbhSelect)
 Vue.prototype.$util = util;
